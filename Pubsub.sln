@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pubsub.Orders", "Pubsub.Orders\Pubsub.Orders.csproj", "{D3866C60-8CDD-4673-B4F5-CF248FCC9DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pubsub.Contracts", "Pubsub.Contracts\Pubsub.Contracts.csproj", "{765AF531-DC66-459C-A0E4-6897483404D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pubsub.Infrastructure", "Pubsub.Infrastructure\Pubsub.Infrastructure.csproj", "{765AF531-DC66-459C-A0E4-6897483404D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pubsub.Tests", "Pubsub.Tests\Pubsub.Tests.csproj", "{F41AB4F5-1FF7-4331-A094-9CF70528D2DF}"
 EndProject

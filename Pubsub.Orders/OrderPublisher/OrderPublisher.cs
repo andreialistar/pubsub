@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using Pubsub.Contracts;
+using Pubsub.Infrastructure;
 using Pubsub.LocalPubSub;
 using Pubsub.Models;
 

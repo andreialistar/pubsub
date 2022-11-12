@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Pubsub.Contracts;
+namespace Pubsub.Infrastructure;
 
 public record Subscriber
 {

@@ -1,4 +1,4 @@
-﻿namespace Pubsub.Contracts;
+﻿namespace Pubsub.Infrastructure;
 
 public interface IPublisher
 {

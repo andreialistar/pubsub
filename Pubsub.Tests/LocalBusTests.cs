@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Pubsub.Contracts;
+using Pubsub.Infrastructure;
 using Pubsub.LocalPubSub;
 
 namespace Pubsub.Tests;

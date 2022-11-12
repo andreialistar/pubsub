@@ -1,4 +1,4 @@
-﻿using Pubsub.Contracts;
+﻿using Pubsub.Infrastructure;
 
 namespace Pubsub.LocalPubSub;
 
