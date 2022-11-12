@@ -16,10 +16,10 @@ public class OrderPublisher
         var hubDestinations = new[] {"Norway", "Denmark", "Romania", "Spain"};
         var orderIds = 100;
 
-        var testOrders = new Faker<Order>()
+        var testOrders = new Faker<OrderMessage>()
             .StrictMode(true)
             .RuleFor(o => o.OrderId, f => orderIds++)
-            .RuleFor(o => o.Quantity, f => f.Random.Int(1, 7))
+            .RuleFor(o => o.Quantity, f => f.Random.Int(3, 20))
             .RuleFor(o => o.ProductName, f => f.Commerce.ProductName())
             .RuleFor(o => o.HubDestination, f => f.Random.ArrayElement(hubDestinations));
 
@@ -31,6 +31,8 @@ public class OrderPublisher
 
             await Task.Delay(delayInMs);
         }
+        
+        _bus.Publish(new EndOfDayMessage());
 
     }
 }

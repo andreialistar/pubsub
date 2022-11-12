@@ -5,7 +5,7 @@ namespace Pubsub.OrderSubscribers;
 
 public class LogSubscriber
 {
-    private static object _lock = new object(); 
+    private static object _lock = new object();
 
     public LogSubscriber()
     {

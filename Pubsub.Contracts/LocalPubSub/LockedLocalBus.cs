@@ -13,11 +13,11 @@ public class LockedLocalBus : LocalBus
         get { return _localBus.SubscribersCount; }
     }
 
-    public override Subscriber Subscribe<T>(object subscriber, Action<T> hook)
+    public override Subscriber Subscribe<T>(object subscriber, Action<T> hook, Func<T,bool> filter = null)
     {
         lock (lck)
         {
-            return _localBus.Subscribe<T>(subscriber, hook);
+            return _localBus.Subscribe<T>(subscriber, hook, filter);
         }
     }
 

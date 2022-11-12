@@ -6,6 +6,7 @@ namespace Pubsub.LocalPubSub;
 public class LocalBus : IPublisher
 {
     private readonly ICollection<Subscriber> _subscribers = new List<Subscriber>();
+
     public virtual int SubscribersCount
     {
         get
@@ -15,13 +16,14 @@ public class LocalBus : IPublisher
         }
     }
 
-    public virtual Subscriber Subscribe<T>(object subscriber, Action<T> hook )
+    public virtual Subscriber Subscribe<T>(object subscriber, Action<T> hook, Func<T, bool> filter = null)
     {
         var sub = new Subscriber
         {
             Action = hook,
             Sender = new WeakReference(subscriber, false),
             Topic = typeof(T),
+            Filter = filter
         };
 
         _subscribers.Add(sub);
@@ -34,10 +36,17 @@ public class LocalBus : IPublisher
         PruneSubscribers();
         foreach (var s in _subscribers)
         {
-            if (typeof(T).IsAssignableTo(s.Topic))
+            if (!typeof(T).IsAssignableTo(s.Topic))
             {
-                ((Action<T>) s.Action)(message);
+                continue;
             }
+
+            if (s.Filter != null && !((Func<T, bool>) s.Filter)(message))
+            {
+                continue;
+            }
+
+            ((Action<T>) s.Action)(message);
         }
     }
 
